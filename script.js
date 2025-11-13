@@ -38,7 +38,7 @@ function abrirConta() {
     movimentacoes = []; // limpa movimentações anteriores
     
     // Registra a abertura da conta nas movimentações com o nome do cliente
-    movimentacoes.push(`${obterDataHoraAtual()} Abertura de conta ${tipo} para ${nome}`);
+    movimentacoes.push(`${obterDataHoraAtual()} Abertura de conta ${tipo} feito por ${nome}`);
     
     // Mensagem de sucesso
     document.getElementById("resConta").innerHTML =
@@ -78,7 +78,7 @@ function depositar() {
     conta.saldo += valor;
     
     // Registra movimentação com data/hora e nome do cliente
-    movimentacoes.push(`${obterDataHoraAtual()} Depósito de R$ ${valor.toFixed(2)} realizado por ${conta.nomeCliente}`);
+    movimentacoes.push(`${obterDataHoraAtual()} ${conta.nomeCliente} fez um Depósito de R$ ${valor.toFixed(2)}  `);
     
     document.getElementById("resOperacoes").innerHTML =
         `💰 Depósito realizado! Saldo atual: <strong>R$
@@ -105,7 +105,7 @@ function sacar() {
     conta.saldo -= valor;
     
     // Registra movimentação com data/hora e nome do cliente
-    movimentacoes.push(`${obterDataHoraAtual()} Saque de R$ ${valor.toFixed(2)} realizado por ${conta.nomeCliente}`);
+    movimentacoes.push(`${obterDataHoraAtual()} ${conta.nomeCliente} fez um saque de R$ ${valor.toFixed(2)}`);
     
     document.getElementById("resOperacoes").innerHTML =
         `💸 Saque realizado! Saldo atual: <strong>R$
@@ -148,7 +148,7 @@ function encerrarConta() {
     const confirma = confirm("Tem certeza que deseja encerrar a conta?");
     if (confirma) {
         // Registra o encerramento da conta nas movimentações com o nome do cliente
-        movimentacoes.push(`${obterDataHoraAtual()} Encerramento da conta de ${conta.nomeCliente}`);
+        movimentacoes.push(`${obterDataHoraAtual()} ${conta.nomeCliente} Encerrou a conta  `);
         
         conta.ativa = false;
         document.getElementById("resOperacoes").innerHTML =
